@@ -1,0 +1,76 @@
+<div class="wrapper-comp-settings is-active">
+    <ul class="list-input settings-list">
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Title</label>
+                <input class="input setting-input" name="title" value="{{ title }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines title in the horizontal navigation at the top of the page</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Question</label>
+                <input class="input setting-input" name="question" value="{{ question }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines question or subtitle for the lab</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Description</label>
+                <textarea class="input setting-input qnet-block-textarea" name="description">{{ description }}</textarea>
+            </div>
+            <span class="tip setting-help">Defines description for the lab</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Lab max score</label>
+                <input class="input setting-input" name="max_score" value="{{ max_score }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines maximum number of points student can get</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Platform domain</label>
+                <input class="input setting-input" name="qnet_domain" value="{{ qnet_domain }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used Qnet platform domain (https://qnet.bonch-ikt.ru/)</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Lab path</label>
+                <input class="input setting-input" name="qnet_path" value="{{ qnet_path }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used path to the Qnet platform lab,<br/>relative to domain and should has an element parameter (stand/{element})</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Lab element</label>
+                <input class="input setting-input" name="qnet_element" value="{{ qnet_element }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used Qnet platform element for the lab</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Lab GET progress</label>
+                <input class="input setting-input" name="qnet_progress" value="{{ qnet_progress }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used Qnet platform api method for getting user progress, relative to domain and<br/>should has a user_name, element and token parameters<br/>(api/progress?user_login={user_name}&element={element}&token={token})</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Lab GET status</label>
+                <input class="input setting-input" name="qnet_status" value="{{ qnet_status }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used Qnet platform api method for getting lab status, relative to domain and<br/>should has a user_name, element and token parameters<br/>(api/wstatus?user_login={user_name}&element={element}&token={token})</span>
+        </li>
+        <li class="field comp-setting-entry">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label">Iteration ID</label>
+                <input class="input setting-input" name="iteration_id" value="{{ iteration_id }}" type="text">
+            </div>
+            <span class="tip setting-help">Defines used iteration id for requests to the Qnet platform,<br/>by default is similar with used lab element</span>
+        </li>
+    </ul>
+</div>
+
+

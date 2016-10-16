@@ -1,0 +1,14 @@
+<div class="qnet-block">
+    <p class="qnet-block__title">{{ question }}</p>
+    <div class="qnet-block__desc">{{ description }}</div>
+    <p class="qnet-block__result" data-action="result">
+        Статус: {{ is_done|yesno:"выполнено,не выполнено" }} ({{ score }}/{{ max_score }} баллов)
+    </p>
+    <p class="qnet-block__error -hidden" data-action="error">
+        <!-- Error message -->
+    </p>
+    <div class="qnet-block__control">
+        <button class="qnet-block-btn" type="button" data-action="submit" disabled>Выполнить</button>
+        <button class="qnet-block-btn" type="button" data-action="progress" disabled>Проверить</button>
+    </div>
+</div>
