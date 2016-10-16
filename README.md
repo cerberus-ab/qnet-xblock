@@ -13,7 +13,7 @@ Before start make sure you have:
 
 Clone repository using git:
 ```
-$ git clone ssh://git@bonch-ikt.ru:2332/opt/git/actives/qnet-xblock.git
+$ git clone https://github.com/cerberus-ab/qnet-xblock.git
 $ cd qnet-xblock
 ```
 
