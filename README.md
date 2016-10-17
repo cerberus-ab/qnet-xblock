@@ -30,11 +30,11 @@ $ /edx/bin/supervisorctl restart edxapp:
 ```
 And then xblock is available in: `/edx/app/edxapp/venvs/edxapp/lib/python2.7/site-packages/qnet`.
 
-Enable xblock in edX Platform ([details](http://edx.readthedocs.io/projects/xblock-tutorial/en/latest/edx_platform/index.html)):
-1. Make sure using advanced components is enabled in `edx-platform/lms/envs/common.py`
-2. Make sure devstack studio has been started
-3. Log in to Studio
-4. Course -> Settings -> Advanced Settings -> Advanced Module List -> Add "qnet" -> Save changes
+Enable xblock in edX Platform ([details](http://edx.readthedocs.io/projects/xblock-tutorial/en/latest/edx_platform/index.html)):  
+1. Make sure using advanced components is enabled in `edx-platform/lms/envs/common.py`  
+2. Make sure devstack studio has been started  
+3. Log in to Studio  
+4. Course -> Settings -> Advanced Settings -> Advanced Module List -> Add "qnet" -> Save changes  
 
 ### Development
 Activate virtual environment:
