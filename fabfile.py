@@ -32,7 +32,7 @@ env.port = config['port']
 env.password = getpass("Enter the password for %s@%s: " % (env.user, env.hosts[0]))
 
 
-def deploy():
+def deploy_copy():
     """Deploy xblock to the target machine"""
     # TODO: add flag to remove dest_dir after
 
@@ -46,3 +46,8 @@ def deploy():
 
     # install xblock and restart edx
     run("sudo -u edxapp /edx/bin/pip.edxapp install %s --no-cache-dir ; /edx/bin/supervisorctl restart edxapp:" % config['dest_dir'])
+
+def deploy():
+    """Deploy xblock using repository"""
+    # install xblock and restart edx
+    run("sudo -Hu edxapp /edx/bin/pip.edxapp install -e git+https://github.com/cerberus-ab/qnet-xblock.git#egg=qnet-xblock ; /edx/bin/supervisorctl restart edxapp:")

@@ -28,7 +28,8 @@ Deploy task uses those commands:
 $ sudo -Hu edxapp /edx/bin/pip.edxapp install -e git+https://github.com/cerberus-ab/qnet-xblock.git#egg=qnet-xblock
 $ /edx/bin/supervisorctl restart edxapp:
 ```
-And then xblock is available in: `/edx/app/edxapp/venvs/edxapp/lib/python2.7/site-packages/qnet`.
+And then xblock is available in: `/edx/app/edxapp/venvs/edxapp/lib/python2.7/site-packages/qnet`.  
+Sure, you can also do this yourself.
 
 Enable xblock in edX Platform ([details](http://edx.readthedocs.io/projects/xblock-tutorial/en/latest/edx_platform/index.html)):  
 1. Make sure using advanced components is enabled in `edx-platform/lms/envs/common.py`  

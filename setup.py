@@ -22,9 +22,9 @@ def package_data(pkg, roots):
 
 setup(
     name='qnet-xblock',
-    version='0.4.0',
+    version='0.4.1',
     description='Qnet+ XBlock',   # TODO: write a better description.
-    license='UNKNOWN',          # TODO: choose a license: 'AGPL v3' and 'Apache 2.0' are popular.
+    license='MIT',          # TODO: choose a license: 'AGPL v3' and 'Apache 2.0' are popular.
     packages=[
         'qnet',
     ],
