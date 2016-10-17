@@ -25,7 +25,7 @@ Known targets: `sotsbi`
 
 Deploy task uses those commands:
 ```
-$ sudo -u edxapp /edx/bin/pip.edxapp install /tmp/qnet --no-cache-dir
+$ sudo -Hu edxapp /edx/bin/pip.edxapp install -e git+https://github.com/cerberus-ab/qnet-xblock.git#egg=qnet-xblock
 $ /edx/bin/supervisorctl restart edxapp:
 ```
 And then xblock is available in: `/edx/app/edxapp/venvs/edxapp/lib/python2.7/site-packages/qnet`.

@@ -4,3 +4,4 @@ xblock-sdk
 node_modules
 xblock_htmlacademy
 stsbsim
+deploy/*.py
