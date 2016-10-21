@@ -58,7 +58,7 @@ class QnetXBlock(XBlock):
         display_name = "Platform domain",
         help = "Used platform domain.",
         scope = Scope.content,
-        default = "https://qnet.bonch-ikt.ru/"
+        default = "http://qnet.bonch-ikt.ru/"
     )
     # Context: used lab path
     qnet_path = String(
