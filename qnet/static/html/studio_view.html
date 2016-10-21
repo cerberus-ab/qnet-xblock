@@ -1,3 +1,4 @@
+{% load l10n %}
 <div class="wrapper-comp-settings is-active">
     <ul class="list-input settings-list">
         <li class="field comp-setting-entry">
@@ -24,7 +25,7 @@
         <li class="field comp-setting-entry">
             <div class="wrapper-comp-setting">
                 <label class="label setting-label">Lab max score</label>
-                <input class="input setting-input" name="max_score" value="{{ max_score }}" type="text">
+                <input class="input setting-input" name="max_score" value="{{ max_score|unlocalize }}" type="text">
             </div>
             <span class="tip setting-help">Defines maximum number of points student can get</span>
         </li>
