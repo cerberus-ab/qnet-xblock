@@ -42,7 +42,8 @@ def deploy_copy():
         run('rm -rf *', quiet=True)
 
     # copy project
-    put("%s/*" % os.path.join(root_dir, 'qnet'), config['dest_dir'])
+    put('%s/qnet*' % root_dir, config['dest_dir'])
+    put('%s/setup.py' % root_dir, config['dest_dir'])
 
     # install xblock and restart edx
     run("sudo -u edxapp /edx/bin/pip.edxapp install %s --no-cache-dir ; /edx/bin/supervisorctl restart edxapp:" % config['dest_dir'])
