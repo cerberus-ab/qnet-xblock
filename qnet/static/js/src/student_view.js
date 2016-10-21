@@ -4,44 +4,56 @@ function QnetXBlock(runtime, element) {
     !function() {
 
         // save used elements
-        var $result = $('[data-action="result"]', element),
-            $error = $('[data-action="error"]', element),
-            $controls = $('button', element);
-
+        var $outResult = $('[data-out="result"]', element),
+            $outError = $('[data-out="error"]', element),
+            $btnSubmit = $('[data-action="submit"]', element),
+            $btnProgress = $('[data-action="progress"]', element),
+            $controls = $('button', element),
+            isReady = false;
 
         // get current lab status
         getData(runtime.handlerUrl(element, 'get_qnet_status'))
             .done(function(response) {
                 // check indices
                 if (!response.limited || response.vacant) {
-                    $controls.prop('disabled', false);
+                    isReady = true;
+                    $btnSubmit.prop('disabled', false);
                 }
                 else {
-                    $error.removeClass('-hidden').text('нет свободных вариантов');
+                    $outError.removeClass('-hidden').text('нет свободных вариантов');
                 }
+                $btnProgress.prop('disabled', false);
             })
             .fail(function() {
-                $error.removeClass('-hidden').text('не удалось получить сведения о работе');
+                $outError.removeClass('-hidden').text('не удалось получить сведения о работе');
             });
 
         // Event: click on submit button
-        $('[data-action="submit"]', element).click(function(e) {
-            window.location = runtime.handlerUrl(element, 'start_qnet_lab');
+        $btnSubmit.click(function(e) {
+            // disable buttons before redirect
+            $controls.prop('disabled', false);
+
+            var location = runtime.handlerUrl(element, 'start_qnet_lab');
+            console.log('goto: ', location);
+
+            window.location = location;
         });
 
         // Event: click on progress button
-        $('[data-action="progress"]', element).click(function(e) {
-            $error.addClass('-hidden').text('');
+        $btnProgress.click(function(e) {
+            $outError.addClass('-hidden').text('');
             $controls.prop('disabled', true);
             // get user progress
             getData(runtime.handlerUrl(element, 'get_qnet_progress'))
                 .done(function(response) {
-                    $result.html(getProgressText(response));
-                    $controls.prop('disabled', false);
+                    $outResult.html(getProgressText(response));
                 })
                 .fail(function() {
-                    $error.removeClass('-hidden').text('не удалось получить результаты пользователя');
-                    $controls.prop('disabled', false);
+                    $outError.removeClass('-hidden').text('не удалось получить результаты пользователя');
+                })
+                .always(function() {
+                    $btnProgress.prop('disabled', false);
+                    $btnSubmit.prop('disabled', !isReady);
                 });
         });
 
@@ -53,7 +65,7 @@ function QnetXBlock(runtime, element) {
         return $.ajax(url, {
             method: 'GET',
             dataType: 'json',
-            timeout: 5000,
+            timeout: 30000,
             cache: false
         });
     }

@@ -2,10 +2,10 @@
 <div class="qnet-block">
     <p class="qnet-block__title">{{ question }}</p>
     <div class="qnet-block__desc">{{ description }}</div>
-    <p class="qnet-block__result" data-action="result">
+    <p class="qnet-block__result" data-out="result">
         Статус: {{ is_done|yesno:"выполнено,не выполнено" }} ({{ score|unlocalize }}/{{ max_score|unlocalize }} баллов)
     </p>
-    <p class="qnet-block__error -hidden" data-action="error">
+    <p class="qnet-block__error -hidden" data-out="error">
         <!-- Error message -->
     </p>
     <div class="qnet-block__control">
