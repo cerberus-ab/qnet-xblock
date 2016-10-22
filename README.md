@@ -2,7 +2,7 @@
 Qnet-plus XBlock for Open edX.
 
 ### Version
-0.4
+0.5
 
 ### Installation
 Before start make sure you have:
