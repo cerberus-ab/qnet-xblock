@@ -187,16 +187,16 @@ class QnetXBlock(XBlock):
 
         return {}
 
-    @XBlock.handler
+    @XBlock.json_handler
     def start_qnet_lab(self, request, suffix=''):
         """The starting handler"""
         abs_path = self.qnet_domain + self.qnet_path
         # check absolute path and used element
         if abs_path != '' and self.qnet_element != '':
-            url = abs_path.format(
-                element = self.qnet_element
-            )
-            return HTTPFound(location = url)
+            return {
+                'uri': abs_path.format(element = self.qnet_element)
+                        + ('?return_uri=%s' % request['from'])
+            }
         else:
             return HTTPServerError(body = "Bad request to the Qnet platform")
 

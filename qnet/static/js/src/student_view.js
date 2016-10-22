@@ -30,13 +30,22 @@ function QnetXBlock(runtime, element) {
 
         // Event: click on submit button
         $btnSubmit.click(function(e) {
-            // disable buttons before redirect
-            $controls.prop('disabled', false);
+            $outError.addClass('-hidden').text('');
+            $controls.prop('disabled', true);
+            // send post request
+            $.ajax(runtime.handlerUrl(element, 'start_qnet_lab'), {
+                type: 'POST',
+                data: JSON.stringify({ from: encodeURIComponent(window.location.href) }),
+                timeout: 30000,
+                cache: false
 
-            var location = runtime.handlerUrl(element, 'start_qnet_lab');
-            console.log('goto: ', location);
+            }).done(function(response) {
+                // redirect to the platform
+                window.location = response.uri;
 
-            window.location = location;
+            }).fail(function() {
+                $outError.removeClass('-hidden').text('не удалось приступить к выполнению работы');
+            });
         });
 
         // Event: click on progress button
@@ -63,7 +72,7 @@ function QnetXBlock(runtime, element) {
     // helper for get method
     function getData(url) {
         return $.ajax(url, {
-            method: 'GET',
+            type: 'GET',
             dataType: 'json',
             timeout: 30000,
             cache: false
